@@ -1,8 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {ExternalConfigurationService} from './external-configuration.service';
+import {AngularHalModule} from 'angular6-hal-client';
 
 @NgModule({
   declarations: [
@@ -10,9 +11,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularHalModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    {provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService}
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
