@@ -13,7 +13,7 @@ export class ExternalConfigurationService implements ExternalConfigurationHandle
   }
 
   getRootUri(): string {
-    return 'https://serviceip.tomcat:8080/APP/';
+    return 'http://localhost:8080/api/';
   }
 
   getExternalConfiguration(): ExternalConfiguration {
